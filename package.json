@@ -1,0 +1,22 @@
+{
+  "name": "exemplo-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medowlucas/node-mongodb-casadodesenvolvedor.git"
+  },
+  "author": "Lucas Lopes de Souza Guilha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/medowlucas/node-mongodb-casadodesenvolvedor/issues"
+  },
+  "homepage": "https://github.com/medowlucas/node-mongodb-casadodesenvolvedor#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
