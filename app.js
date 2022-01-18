@@ -1,11 +1,15 @@
 const express = require('express');
 const app = express();
 
+app.use(express.json());
+
+const contatos = ["Lucas", "Larissa", "Cauê"];
+
 app.get('/',(req, res) => {
     res.send("Olá Mundo");
 })
 
-app.get('/contato/:id', (req, res)=>{
+app.get('/contato/:id', (req, res) => {
 
     const {id} = req.params;
     const {sit} = req.query;
@@ -17,17 +21,18 @@ app.get('/contato/:id', (req, res)=>{
     });
 })
 
-app.get('/sobre', (req, res)=>{
-    res.send("Página de sobre 4");
-})
+app.post('/contatos', (req, res) => {
 
-app.get('/mensagem', (req, res)=>{
-    res.send("Página de mensagem 4");
+    const { nome } = req.body;
+
+    contatos.push(nome);
+
+    return res.json({
+        contatos
+    })
 })
 
 const PORT = 8080;
 app.listen(PORT, () => {
-
-
     console.log(`App running in port ${PORT}`)
 })
