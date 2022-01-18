@@ -2,11 +2,19 @@ const express = require('express');
 const app = express();
 
 app.get('/',(req, res) => {
-    res.send("Olá Mundo 2");
+    res.send("Olá Mundo");
 })
 
-app.get('/contato', (req, res)=>{
-    res.send("Página de contato 4");
+app.get('/contato/:id', (req, res)=>{
+
+    const {id} = req.params;
+    const {sit} = req.query;
+
+    res.json({
+        id: id,
+        sit,
+        email:"oi@gmail.com"
+    });
 })
 
 app.get('/sobre', (req, res)=>{
