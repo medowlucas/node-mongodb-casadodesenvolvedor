@@ -9,16 +9,19 @@ app.get('/',(req, res) => {
     res.send("Olá Mundo");
 })
 
-app.get('/contato/:id', (req, res) => {
+app.get('/contatos/', (req, res) => {
 
-    const {id} = req.params;
-    const {sit} = req.query;
+    // const {id} = req.params;
+    // const {sit} = req.query;
 
+    // res.json({
+    //     id,
+    //     sit,
+    //     email:"oi@gmail.com"
+    // });
     res.json({
-        id: id,
-        sit,
-        email:"oi@gmail.com"
-    });
+        contatos
+    })
 })
 
 app.post('/contatos', (req, res) => {
@@ -30,6 +33,16 @@ app.post('/contatos', (req, res) => {
     return res.json({
         contatos
     })
+})
+
+app.put("/contato/:id", (req, res)=>{
+
+    const { id } = req.params;
+    const { nome } = req.body;
+
+    contatos[id] = nome;
+
+    return res.json(contatos);
 })
 
 const PORT = 8080;
