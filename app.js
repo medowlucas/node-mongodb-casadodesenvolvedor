@@ -45,6 +45,14 @@ app.put("/contato/:id", (req, res)=>{
     return res.json(contatos);
 })
 
+app.delete("/contato/:id", (req, res) => {
+    const { id } = req.params;
+
+    contatos.splice(id, 1);
+
+    res.json(contatos);
+})
+
 const PORT = 8080;
 app.listen(PORT, () => {
     console.log(`App running in port ${PORT}`)
