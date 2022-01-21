@@ -5,6 +5,17 @@ app.use(express.json());
 
 const contatos = ["Lucas", "Larissa", "Cauê"];
 
+function validaNome(req, res, next){
+    if(!req.body.nome) {
+        return res.status(400).json({
+            "erro": true,
+            "mensagem": "O parâmetro nome não foi enviado!"
+        })
+    }
+
+    next();
+}
+
 app.get('/',(req, res) => {
     res.send("Olá Mundo");
 })
@@ -24,7 +35,7 @@ app.get('/contatos/', (req, res) => {
     })
 })
 
-app.post('/contatos', (req, res) => {
+app.post('/contatos', validaNome, (req, res) => {
 
     const { nome } = req.body;
 
